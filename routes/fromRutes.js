@@ -44,4 +44,20 @@ formRouter.post('/', async (req, res) => {
       res.status(500).json(err);
     }
   });
-  module.exports = formRouter ;
+
+  formRouter.delete("/:id", async (req, res) => {
+    try {
+      const personId = req.params.id;
+      const reminder = await Storage.findOneAndDelete(personId);
+      if (!reminder) {
+        return res.status(404).json({ message: "No Menu with this ID" });
+      }
+      console.log("data deleted");
+      res.status(200).json({ message: "person deleted success" });
+    } catch (err) {
+      console.log(err);
+      res.status(500).json(err);
+    }
+  });
+
+module.exports = formRouter;
