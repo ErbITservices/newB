@@ -7,8 +7,16 @@ const storageSchema = new mongoose.Schema({
   lname: {
     type: String,
   },
-
+  categoryoflibrary: {
+    type: String,
+  },
   gam: {
+    type: String,
+  },
+  phone: {
+    type: String,
+  },
+  email: {
     type: String,
   },
   pin: {
